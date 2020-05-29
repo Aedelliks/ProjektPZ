@@ -48,4 +48,5 @@ class Order(models.Model):
     status = models.CharField(max_length = 200, null = True, choices = STATUS)
 
     def __str__(self):
-        return "{} zamówił {} - status: {}".format(self.customer.name, self.product.name, self.status)
+        #return "{} zamówił {} - status: {}".format(self.customer.name, self.product.name, self.status)
+        return self.product.name
