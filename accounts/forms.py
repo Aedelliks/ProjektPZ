@@ -5,10 +5,16 @@ from django import forms
 from .models import *
 
 
+class CustomerForm(ModelForm):
+    class Meta:
+        model = Customer
+        fields = '__all__'
+        exclude = ['user']
+
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = '__all__'
+        fields = '__all__' 
 
 
 class CreateUserForm(UserCreationForm):
