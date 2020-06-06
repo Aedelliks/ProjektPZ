@@ -66,8 +66,8 @@ def home(request):
     total_customers = customers.count()
 
     total_orders = orders.count()
-    delivered = orders.filter(status = 'Delivered').count()
-    pending = orders.filter(status = 'Pending').count()
+    delivered = orders.filter(status = 'Dostarczone').count()
+    pending = orders.filter(status = 'Oczekujące').count()
 
     context = {'orders': orders, 'customers': customers,
     'total_orders': total_orders, 'delivered': delivered,

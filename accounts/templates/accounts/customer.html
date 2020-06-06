@@ -40,7 +40,18 @@
         <div class="card card-body">
 
             <form method="get">
-              {{myFilter.form}}
+              <!-- {{myFilter.form}} -->
+              {% csrf_token %}
+
+              <table class="table table-sm">
+                  <tr>
+                      <th>Produkt: {{myFilter.form.product}}</th>
+                      <th>Status: {{myFilter.form.status}}</th>
+                      <th>Nota zawiera : {{myFilter.form.note}}</th>
+                      <th>Data od : {{myFilter.form.start_date}}</th>
+                      <th>Data do : {{myFilter.form.end_date}}</th>
+                  </tr>
+              <table></table>
 
                 <button class="btn btn-primary" type="submit">Szukaj</button>
             </form>
