@@ -3,16 +3,19 @@
 {% block content %}
 
 <div class = "row">
-	<div class = "col-md-6">
+	<div class = "col-md-12">
 		<div class = "card card-body">
 
 			<form action = "" method = "POST">
-				{% csrf_token %}
+				<!-- {% csrf_token %}
 				{{formset.management_form}}
 				{% for form in formset %}
 					{{form}}
 					<hr>
-				{% endfor %}
+				{% endfor %} -->
+
+				{% csrf_token %}
+				{{form}}
 
 				<input type = "submit" name = "Submit">
 			</form>

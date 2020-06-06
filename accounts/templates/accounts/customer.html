@@ -9,7 +9,7 @@
         <div class="card card-body">
             <h5>Customer:</h5>
             <hr>
-            <a class="btn btn-outline-info  btn-sm btn-block" href="">Zmień dane klienta</a>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'account' %}">Zmień dane klienta</a>
             <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_order' customer.id %}">Złóż zamówienie</a>
 
         </div>
@@ -26,7 +26,7 @@
 
     <div class="col-md">
         <div class="card card-body">
-            <h5>Zamówień ogólnie</h5>
+            <h5>Liczba realizacji zamowień</h5>
             <hr>
             <h1 style="text-align: center;padding: 10px">{{order_count}}</h1>
         </div>
@@ -60,7 +60,7 @@
                     <th>Data zamówienia</th>
                     <th>Status</th>
                     <th>Aktualizuj</th>
-                    <th>Uzuń</th>
+                    <th>Usuń</th>
                 </tr>
 
                 {% for order in orders %}

@@ -6,6 +6,10 @@
     color: #ffffff;
     margin-right: 20px
   }
+  #ustawienia-txt
+  {
+    color: #ffffff;
+  }
 </style>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style = "background-color: #23598b  ;">
   
@@ -23,7 +27,7 @@
       </li>
       {% else %}
       <li class="nav item">
-        <a cass="nav-link" href="{% url 'account' %}">Ustawienia</a>
+        <a id ="ustawienia-txt" class="nav-link" href="{% url 'account' %}">Ustawienia</a>
       </li>
       {% endif %}
     </ul>
