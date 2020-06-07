@@ -132,29 +132,39 @@ def customer(request, pk_test):
 @allowed_users(allowed_roles = ['admin'])
 def createOrder(request, pk):
 
-    # OrderFormSet = inlineformset_factory(Customer, Order, fields = ('product', 'status'), extra = 10)
-    # customer = Customer.objects.get(id = pk)
-    # formset = OrderFormSet(queryset = Order.objects.none(), instance = customer)
-    # #form = OrderForm(initial = {'customer': customer})
-    # if request.method == 'POST':
-    #     #print('Printing POST:', request.POST)
-    #     #form = OrderForm(request.POST)
-    #     formset = OrderFormSet(request.POST, instance = customer)
-    #     if formset.is_valid():
-    #         formset.save()
-    #         return redirect('/')
-
-    # context = {'formset': formset}
-
-
-    form = OrderForm()
+    OrderFormSet = inlineformset_factory(Customer, Order, fields = ('product', 'status'), extra = 10)
+    customer = Customer.objects.get(id = pk)
+    formset = OrderFormSet(queryset = Order.objects.none(), instance = customer)
+    #form = OrderForm(initial = {'customer': customer})
     if request.method == 'POST':
-        #print('Printing POST', request.POST)
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            form.save()
+        #print('Printing POST:', request.POST)
+        #form = OrderForm(request.POST)
+        formset = OrderFormSet(request.POST, instance = customer)
+        if formset.is_valid():
+            formset.save()
             return redirect('/')
-    context = {'form':form}
+
+    context = {'formset': formset}
+
+    # cutomer = Customer.objects.get(id = pk)
+    # form = OrderForm()
+    # if request.method == 'POST':
+    #     #print('Printing POST', request.POST)
+    #     form = OrderForm(request.POST, instance = customer)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('/')
+    # context = {'form':form}
+
+    # form = OrderForm()
+    # if request.method == 'POST':
+    #     #print('Printing POST', request.POST)
+    #     form = OrderForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('/')
+    # context = {'form':form}
+
     return render(request, 'accounts/order_form.html', context)
 
 @login_required(login_url = "login")

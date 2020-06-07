@@ -15,17 +15,30 @@
 				{% endfor %} -->
 
 				<!-- {% csrf_token %}
-				{{form}} -->
 				
-				{% csrf_token %}
+				{% for f in form %}
 				<table class="table table-sm">
 					<tr>
-						<th>Użytkownik: {{form.customer}}</th>
-						<th>Produkt: {{form.product}}</th>
-						<th>Status: {{form.status}}</th>
-						<th>Nota: {{form.note}}</th>
+						<th>Użytkownik: {{f.customer}}</th>
+						<th>Produkt: {{f.product}}</th>
+						<th>Status: {{f.status}}</th>
+						<th>Nota: {{f.note}}</th>
 					</tr>
 				<table></table>
+				{% endfor %} -->
+
+				{% csrf_token %}
+				{{formset.management_form}}
+				{% for form in formset %}
+				{% csrf_token %}
+				
+				<table class="table table-sm">
+					<tr>
+						<th>Produkt: {{form.product}}</th>
+						<th>Status: {{form.status}}</th>
+					</tr>
+				</table>
+				{% endfor %}
 				
 
 				<input type = "submit" name = "Submit">
