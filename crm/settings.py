@@ -27,7 +27,7 @@ SECRET_KEY = 'a+etpz#ocp)#54le&e$^g7*g_f^hkvs#t1er-$#98e#%-*tziw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['projektpz-live.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['projektpz-live.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
