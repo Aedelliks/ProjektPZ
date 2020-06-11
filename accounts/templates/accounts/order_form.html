@@ -28,6 +28,24 @@
 				{% endfor %} -->
 
 				{% csrf_token %}
+				{% if f %}
+				<table class="table table-sm">
+					<tr>
+
+						<th>Użytkownik: {{f.customer}}</th>
+						<th>Produkt: {{f.product}}</th>
+						<th>Status: {{f.status}}</th>
+						<th>Nota: {{f.note}}</th>
+					</tr>
+				</table>
+				{% else %}
+				
+				{% endif %}
+				
+				
+				
+
+				{% csrf_token %}
 				{{formset.management_form}}
 				{% for form in formset %}
 				{% csrf_token %}
@@ -40,7 +58,7 @@
 				</table>
 				{% endfor %}
 				
-
+				
 				<input type = "submit" name = "Submit">
 			</form>
 
