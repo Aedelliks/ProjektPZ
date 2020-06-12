@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     #'grappelli',
     #'djangocms_admin_style',
     
-    'django.contrib.admin',
+    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'django_filters',
+    'django.contrib.admin',
 
 ]
 

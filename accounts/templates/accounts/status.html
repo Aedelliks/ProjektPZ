@@ -1,9 +1,21 @@
+<style>
+    #card1{
+        background-color: rgb(100, 156, 202);
+    }
+     #card2{
+        background-color: rgb(75, 154, 219);
+    }
+    #card3{
+        background-color: rgb(40, 144, 230);
+    }
+</style>
+
 <br>
 
 <div class="row">
     <div class="col">
         <div class="col-md">
-            <div class="card text-center text-white  mb-3" id="total-orders">
+            <div id = "card1" class="card text-center text-white  mb-3" id="total-orders">
                 <div class="card-header">
                     <h5 class="card-title">Ilość zamówień</h5>
                 </div>
@@ -16,9 +28,9 @@
 
     <div class="col">
         <div class="col-md">
-            <div class="card text-center text-white  mb-3" id="orders-delivered">
+            <div id = "card2" class="card text-center text-white  mb-3" id="orders-delivered">
                 <div class="card-header">
-                    <h5 class="card-title">Dostarczone</h5>
+                    <h5 class="card-title">Zamówienia Dostarczone</h5>
                 </div>
                 <div class="card-body">
                     <h3 class="card-title">{{delivered}}</h3>
@@ -29,7 +41,7 @@
 
     <div class="col">
         <div class="col-md">
-            <div class="card text-center text-white  mb-3" id="orders-pending">
+            <div id = "card3" class="card text-center text-white  mb-3" id="orders-pending">
                 <div class="card-header">
                     <h5 class="card-title">Zamówienia oczekujące</h5>
                 </div>

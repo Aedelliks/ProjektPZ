@@ -68,12 +68,35 @@ def home(request):
     total_orders = orders.count()
     delivered = orders.filter(status = 'Dostarczone').count()
     pending = orders.filter(status = 'Oczekujące').count()
-
+    
     context = {'orders': orders, 'customers': customers,
     'total_orders': total_orders, 'delivered': delivered,
     'pending': pending}
 
     return render(request, 'accounts/dashboard.html', context)
+
+# @login_required(login_url = "login")
+
+# def home(request):
+#     orders = Order.objects.all()
+#     customers = Customer.objects.all()
+
+#     total_customers = customers.count()
+
+#     total_orders = orders.count()
+#     delivered = orders.filter(status = 'Dostarczone').count()
+#     pending = orders.filter(status = 'Oczekujące').count()
+
+#     if customers == 'customer':
+#         context = {'orders': orders, 'customers': customers,
+#         'total_orders': total_orders, 'delivered': delivered,
+#         'pending': pending}
+#         return render(request, 'accounts/dashboard.html', context)
+
+#     else:
+#         context = {'total_orders': total_orders, 'delivered': delivered,
+#         'pending': pending}
+#         return render(request, 'accounts/dashboard.html', context)
 
 
 @login_required(login_url = "login")
@@ -115,7 +138,7 @@ def products(request):
     return render(request, 'accounts/products.html', {'products': products})
 
 @login_required(login_url = "login")
-@allowed_users(allowed_roles = ['admin'])
+@allowed_users(allowed_roles = ['admin','customer'])
 def customer(request, pk_test):
     customer = Customer.objects.get(id = pk_test)
 
@@ -168,7 +191,7 @@ def createOrder(request, pk):
     return render(request, 'accounts/order_form.html', context)
 
 @login_required(login_url = "login")
-@allowed_users(allowed_roles = ['admin'])
+@allowed_users(allowed_roles = ['admin','customer'])
 def updateOrder(request, pk):
 
     order = Order.objects.get(id = pk)
@@ -184,7 +207,7 @@ def updateOrder(request, pk):
     return render(request, 'accounts/order_form.html', context)
 
 @login_required(login_url = "login")
-@allowed_users(allowed_roles = ['admin'])
+@allowed_users(allowed_roles = ['admin','customer'])
 def deleteOrder(request, pk):
     order = Order.objects.get(id = pk)
     if request.method == "POST":
@@ -193,3 +216,4 @@ def deleteOrder(request, pk):
 
     context = {'item': order}
     return render(request, 'accounts/delete.html', context)
+

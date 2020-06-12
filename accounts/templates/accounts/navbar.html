@@ -10,9 +10,13 @@
   {
     color: #ffffff;
   }
+  #logo{
+    width: auto;
+    height: auto;
+  }
 </style>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style = "background-color: #23598b  ;">
-  
+  <img id = "logo" src="{% static 'images/logo_es4.png' %}">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,6 +28,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'products' %}">Produkty</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href= "{% url 'admin:index' %}">Panel administracji</a>
       </li>
       {% else %}
       <li class="nav item">

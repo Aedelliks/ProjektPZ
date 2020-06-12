@@ -4,6 +4,8 @@ from django.contrib import admin
 
 from .models import *
 
+admin.site.site_header = "ES Magazyn Administracja"
+
 admin.site.register(Customer)
 admin.site.register(Product)
 admin.site.register(Tag)
